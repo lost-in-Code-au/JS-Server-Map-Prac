@@ -1,10 +1,33 @@
 var MapWrapper = function(obj) {
-  var container = document.querySelector("#main-map")
+  var container = document.getElementById('main-map')
   this.googleMap = new google.maps.Map(container, {
     center: obj,
     zoom: 14
   })
-  
+
+  var melbButton = document.querySelector('#melb-button')
+  var whereAmIButton = document.querySelector('#geo-button')
+
+  var goToMelb = function(){
+    var melb = { lat: -37.814, lng: 144.96332 }
+    this.googleMap.setCenter(melb)
+  }.bind(this)
+
+  var findLocation = function(){
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+      this.googleMap.setCenter(pos)
+    }.bind(this))
+  }.bind(this)
+
+  melbButton.addEventListener('click', goToMelb)
+  whereAmIButton.addEventListener('click', findLocation)
+
+
+
   // var infowindow = new google.maps.InfoWindow({
   //   content: mapPinContent
   // });
