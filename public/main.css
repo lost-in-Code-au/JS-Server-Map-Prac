@@ -1,0 +1,17 @@
+#main-map {
+  height: 660px;
+  width: 700px;
+}
+
+.footer {
+  padding: 1em;
+}
+
+body {
+  background-color: #333;
+  color: orange;
+}
+
+img {
+  max-height: 300px;
+}
