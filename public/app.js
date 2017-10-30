@@ -29,6 +29,9 @@
 // }
 
 const initialize = function() {
+  var apiLoader = "http://maps.googleapis.com/maps/api/js?key="+process.env.APIKEY
+  console.log(apiLoader)
+
   const beachLocation = {lat:-38.4362389, lng:144.8445914 }
   const mainMap = new MapWrapper(beachLocation)
 }
